@@ -13,6 +13,7 @@ if ~exist([datapath filesep 'Graphics'], 'dir')
     mkdir([graphpath filesep 'AlphaAlpha'])
     mkdir([graphpath filesep 'AlphaBeta'])
     mkdir([graphpath filesep 'BetaBeta'])
+    mkdir([graphpath filesep 'SlipActivity'])
     sprintf('New Directory Graphics created.');
 else
     graphpath = [datapath filesep 'Graphics'];
@@ -338,46 +339,9 @@ for j = 1:segments-1
 end
 close
 
-%% Alpha-Beta Binning Strain = 1
+%% Slip Activity Plots
 
-% for i = 1:length(r)
-%     for j = 1:segments
-%         if adiv(i,j) > thresh
-%             adiv_thresh(i,j) = 1;
-%         else
-%             adiv_thresh(i,j) = 0;
-%         end
-%     end
-% end
-% 
-% for i = 1:length(r)
-%     for j = 1:segments
-%         if bdiv(i,j) > thresh
-%             bdiv_thresh(i,j) = 1;
-%         else
-%             bdiv_thresh(i,j) = 0;
-%         end
-%     end
-% end
-% 
-% for i = 1:length(r)
-%     for j = 1:segments
-%         if mangle(i,j) > thresh
-%             mangle_thresh(i,j) = 1;
-%         else
-%             mangle_thresh(i,j) = 0;
-%         end
-%     end
-% end
-% 
-% fn = [pwd filesep 'Graphics' filesep 'AlphaBeta' filesep];
-% 
-% figure
-% contourf(r,mangle_thresh(:,segments))
-% %setColorRange([0 MaxMisoScale])
-% colorbar
-% mtexColorMap blue2red
-% saveas(gcf,[fn 'BinningStrain1' res '.png'])
-% hold off
-% close
+plotActivityPole_gif;
+
+%% Binning Plots
 
