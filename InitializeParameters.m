@@ -43,3 +43,10 @@ a_basal3 = zeros(41,dataSet);
 a_pyr = zeros(41,dataSet);
 a_mix2 = zeros(41,dataSet);
 activity = zeros(segments,dataSet,6);
+
+%% Add Dependency Folders to Matlab Path
+% Path addition with addpath only adds to the pathe for the cyrrent Matlab
+% session.
+
+addpath(genpath([pwd filesep 'Analysis']));
+addpath(genpath([pwd filesep 'ExternalTools']));
