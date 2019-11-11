@@ -1,6 +1,11 @@
 # Ti VPSC CoRotation Analysis
  Code to run and analyze VPSC for alpha-beta Ti alloys in compression
 
+Code is broken into three parts: variable declarations (for conventionally modified parameters), 
+Running the VPSC simulations across orientation space, and 
+Analyzing and plotting the VPSC output files. 
+The relevant files for each of these three are listed below. 
+
 Variable Declarations are found in InitializeParameters.m
 Run VPSC simulations using RunVPSC.m
 Analyze and plot the data using AnalyzeVPSC.m
