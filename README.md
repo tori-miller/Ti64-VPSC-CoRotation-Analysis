@@ -1,13 +1,18 @@
 # Ti VPSC CoRotation Analysis
- Code to run and analyze VPSC for alpha-beta Ti alloys in compression
 
-Code is broken into three parts: variable declarations (for conventionally modified parameters), 
-Running the VPSC simulations across orientation space, and 
-Analyzing and plotting the VPSC output files. 
-The relevant files for each of these three are listed below. 
+© Victoria M. Miller and Benjamin A. Begley, 2019.
 
-Variable Declarations are found in InitializeParameters.m
-Run VPSC simulations using RunVPSC.m
-Analyze and plot the data using AnalyzeVPSC.m
+This repository contains the code necessary to run and analyze Viscoplastic Self-Consistent (VPSC) simulations for alpha-beta Ti alloys in compression. This code was used in the paper "Prediction of relative globularization rates in α + β titanium alloys as a function of initial crystal orientation," by B.A. Begley, S.K. Markham, M.R. Mizak, A.L. Pilchak, and V.M. Miller, submitted October 2019. 
 
-The developers thank Oliver J. Woodford and Yair M. Altman for the development of export_fig, which has been used extensively in this work to create publication quality figures and gifs. We also thank V�ctor Mart�nez-Cagigal for customcolormap and DGM for blendtools, both tools found on the Matlab File Exchange. These excellent tools provided several solutions to problems that might have otherwise gone unsolved.
+Code is broken into three parts: 
+1. Variable declarations (for conventionally modified parameters), found in *InitializeParameters.m*
+2. Running the VPSC simulations across orientation space, using *RunVPSC.m*
+3. Analyzing and plotting the VPSC output files, using *AnalyzeVPSC.m*
+ 
+*RunVPSC.m* and *AnalyzeVPSC.m* are designed to use the same variable declarations in *InitializeParameters.m*, so do not change any parameters between running VPSC and analyzing/plotting the data. When running VPSC, the raw data will be output to a directory with the name "Data_X_degrees", where *X* is the degree resolution of the data (smaller degree, higher resolution data.) Figures and Gifs of the analyzed data will be exported to "./Data_X_degrees/Graphics/".
+
+This code relies heavily on the MTEX Matlab toolbox for analyzing and modeling crystallographic textures. This code was written and tested in MTEX version 5.2.X and may not function in older versions.
+
+Please note that this code automatically and temporarily adds several of its sub-directories to your Matlab path, which will be removed at the end of your current Matlab session. If this is a feature you wish to remove, that code is found at the end of *InitializeParameters.m*, however, you will have to move several scripts and function files to the working directory, as they will no longer be searchable in the path.
+
+The developers thank Oliver J. Woodford and Yair M. Altman for the development of export_fig, which has been used extensively in this work to create publication quality figures and gifs. We also thank Víctor Martínez-Cagigal for customcolormap and DGM for blendtools, both tools found on the Matlab File Exchange. These excellent tools provided several solutions to problems that might have otherwise gone unsolved. Finally, we thank Ralf Hielscher and his collaborators for the MTEX toolbox, without which this work would have required coding skills well beyond me.
