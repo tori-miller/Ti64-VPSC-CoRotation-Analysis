@@ -1,6 +1,7 @@
 
 InitializeParameters;
 
+% Make directories if they don't exist
 if ~exist([pwd filesep 'Data_' num2str(resolution) '_degrees'], 'dir')
     mkdir([pwd filesep 'Data_' num2str(resolution) '_degrees'])
     sprintf('New Directory Data_%s_degrees created.', num2str(resolution));
@@ -14,6 +15,8 @@ datapath = [pwd filesep 'Data_' num2str(resolution) '_degrees'];
 % Write output every 5% strain, up to a total of 100% strain (compression)
 
 w = waitbar(0,sprintf('VPSC Progress: %.0f%%',i/length(r(:))*100));
+    % Feel free to disable, there are some bugs with the waitbars.
+    % Unimportant. 
 
 % Loop over loading directions
 for i = 1:length(r(:))

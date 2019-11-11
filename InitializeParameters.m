@@ -5,7 +5,7 @@ CSb = crystalSymmetry('432', [3.24 3.24 3.24], 'mineral', 'Titanium - Beta', 'co
 
 SS = specimenSymmetry('-1');
 
-%Preset Starting Orientation
+%Preset Starting Orientations
 ori_a0 = orientation('Euler',135*degree,90*degree,325*degree,CSa);
 ori_b0 = orientation('Euler',0*degree,0*degree,0*degree,CSb);
 
@@ -45,7 +45,7 @@ a_mix2 = zeros(41,dataSet);
 activity = zeros(segments,dataSet,6);
 
 %% Add Dependency Folders to Matlab Path
-% Path addition with addpath only adds to the pathe for the cyrrent Matlab
+% Path addition with addpath only adds to the path for the current Matlab
 % session.
 
 addpath(genpath([pwd filesep 'Analysis']));

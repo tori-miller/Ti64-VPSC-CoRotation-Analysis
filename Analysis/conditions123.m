@@ -1,13 +1,7 @@
 %% Threshold by Condition. Use midpoint to bin high vs low. 
 % This is less about thresholds per se and more about binning the angles
 % for overlay comparison. The threshold I'm using here is 20 - half the 
-% maximum misorientation value. Arbitraty? yes. I figured half way was as
-% reasonable as it would get for a first pass high/low binning without data to inform us.
-% Distributions of the misorientations may be more useful for more in depth
-% attempts. 
-
-%No need to choose only 20, let's do all of them!
-%threshold = 20;
+% maximum misorientation value. 
 
 % parameterize the strain step for all these plots. All this could be done
 % for every strain step and turned into a gif, but in the interest of 
@@ -22,43 +16,14 @@ white2ltgrey = customcolormap([0 0.5 1], {'#d3d3d3','#ffffff', '#ffffff'});
 
 white2dkgrey = customcolormap([0 0.5 1], {'#696969', '#ffffff', '#ffffff'});
 
-%% Define high region of all three misorientation matrices - adiv, bdiv, and mangle. Then bin according to conditions 1,2, and 3
-% A lot goes on in this loop, but its better than 4 individual loops doing
-% the same thing. These first define a new matrix where any angle less than
-% 20 is made 0. Then, using the logical form of that matrix we sort each 
-% orientation into a condition based on the relationship between angles of 
-% alpha, beta, and mangle.
-% Using true data values for the high part allows us to get
-% both intensity and regional meaning out of overlaying these plots.
 
-
-%% Plot the individual contours for adivHigh, bdivHigh, and mangleHigh
-% I use white2red which I made up. It is white until the midpoint at 20 which makes a cool heat map
-% effect which will also be convenient for overlay work. Any colormap could be used. 
-% plot adivHigh
-% figure
-% contourf(r,adivHigh, 'linestyle', 'none');
-% caxis([0,40])
-% colorbar
-% colormap(white2red)
-% % plot bdivHigh
-% figure
-% contourf(r,bdivHigh, 'linestyle', 'none')
-% caxis([0,40])
-% colorbar
-% colormap(white2red)
-% % plot mangleHigh
-% figure
-% contourf(r,mangleHigh, 'linestyle', 'none');
-% caxis([0,40])
-% colorbar
-% colormap(white2red)
-
-%% Now, lets plot conditions.
+%% Now, lets make and plot conditions.
 
 fn = [graphpath filesep 'Binning' filesep];
 
 for threshold = 5:5:40
+    % this "threshold" is the angular difference between corotation,
+    % antirotation, and stable orientations. 
     
     %initialize matrices
     adivHighLogic = adiv(:,strainStep)>threshold;

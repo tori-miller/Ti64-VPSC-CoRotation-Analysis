@@ -1,4 +1,7 @@
 %% Activity Matrix Clean Up
+% This is accounting for the fact that we only output VPSC textures every
+% other deformation step. 
+
 % remove every other row to line up with orientation data
 a_prism1(2:2:41,:) = [];
 a_prism3(2:2:41,:) = [];
