@@ -16,3 +16,8 @@ This code relies heavily on the MTEX Matlab toolbox for analyzing and modeling c
 Please note that this code automatically and temporarily adds several of its sub-directories to your Matlab path, which will be removed at the end of your current Matlab session. If this is a feature you wish to remove, that code is found at the end of *InitializeParameters.m*, however, you will have to move several scripts and function files to the working directory, as they will no longer be searchable in the path.
 
 The developers thank Oliver J. Woodford and Yair M. Altman for the development of export_fig, which has been used extensively in this work to create publication quality figures and gifs. We also thank Víctor Martínez-Cagigal for customcolormap and DGM for blendtools, both tools found on the Matlab File Exchange. These excellent tools provided several solutions to problems that might have otherwise gone unsolved. Finally, we thank Ralf Hielscher and his collaborators for the MTEX toolbox, without which this work would have required coding skills well beyond me.
+
+MTEX: https://mtex-toolbox.github.io/index.html
+Export_fig: https://github.com/altmany/export_fig
+Blendtools: https://www.mathworks.com/matlabcentral/fileexchange/52513-image-blending-functions
+Custom Colormap: https://www.mathworks.com/matlabcentral/fileexchange/69470-custom-colormap
