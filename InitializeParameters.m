@@ -26,10 +26,10 @@ segments = 22;
 % 1387 rotations = 5
 % 2093 rotations = 4
 
-resolution = 10; %degrees
+resolution = 90; %degrees
 
-%r = plotS2Grid('resolution',resolution*degree,'upper');
-r = equispacedS2Grid('resolution', resolution*degree, 'upper');
+r = plotS2Grid('resolution',resolution*degree,'upper');
+%r = equispacedS2Grid('resolution', resolution*degree, 'upper');
 
 rot  = rotation('map',zvector,r);
 rot2 = rotation('map',r,zvector);
@@ -38,12 +38,14 @@ dataSet = length(r(:));
 
 %% Initialize matrices to run faster later
 a_prism1 = zeros(41,dataSet);
+a_prism2 = zeros(41,dataSet);
 a_prism3 = zeros(41,dataSet);
 a_basal1 = zeros(41,dataSet);
+a_basal2 = zeros(41,dataSet);
 a_basal3 = zeros(41,dataSet);
 a_pyr = zeros(41,dataSet);
-a_mix2 = zeros(41,dataSet);
-activity = zeros(segments,dataSet,6);
+%a_mix2 = zeros(41,dataSet);
+
 
 %% Add Dependency Folders to Matlab Path
 % Path addition with addpath only adds to the path for the current Matlab

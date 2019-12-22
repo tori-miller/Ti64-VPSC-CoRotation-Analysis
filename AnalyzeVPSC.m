@@ -5,3 +5,5 @@ ReadVPSCData;
 CleanActivityMatrix;
 CalculateMisorientation;
 GenerateGraphics;
+
+disp('VPSC Analysis Complete!');

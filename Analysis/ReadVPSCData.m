@@ -8,7 +8,7 @@ w = waitbar(0,sprintf('Partitioning VPSC Texture Files: %.0f%%',i/length(r(:))*1
 for i = 1:length(r(:))
 %for i = start_index:end_index
     
-    pname = [pwd filesep 'Data_' num2str(resolution) '_degrees' filesep 'Rot_' num2str(i)];
+    pname = [pwd filesep 'Data_7SS' num2str(resolution) '_degrees' filesep 'Rot_' num2str(i)];
     
     partitionVPSCtexture(pname, 1);
     partitionVPSCtexture(pname, 2);
@@ -18,12 +18,15 @@ for i = 1:length(r(:))
     %act(i,:,:) = importACT_TiAni(pname, 1);
     
     % read deformation mode activity for each strain step, add to matrix
-    [activity_t,a_prism1_t,a_mix2_t,a_prism3_t,a_basal1_t,a_basal3_t,a_pyr_t] = importACT_TiAni(pname,1);
+    %[activity_t,a_prism1_t,a_mix2_t,a_prism3_t,a_basal1_t,a_basal3_t,a_pyr_t] = importACT_TiAni(pname,1);
+    [activity,a_prism1_t,a_prism2_t,a_prism3_t,a_basal1_t,a_basal2_t,a_basal3_t,a_pyr_t] = importACT_TiAni(pname,1);
     a_prism1(:,i) = a_prism1_t;
+    a_prism2(:,i) = a_prism2_t;
     a_prism3(:,i) = a_prism3_t;
     a_basal1(:,i) = a_basal1_t;
+    a_basal2(:,i) = a_basal2_t;
     a_basal3(:,i) = a_basal3_t;
-    a_mix2(:,i) = a_mix2_t;
+    %a_mix2(:,i) = a_mix2_t;
     a_pyr(:,i) = a_pyr_t;
     
     [strain,stress(i,:)] = importSTR(pname);

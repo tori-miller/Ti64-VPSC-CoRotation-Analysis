@@ -5,7 +5,7 @@ thresh = 20;
 
 %% Create New Directories If Necessary
 
-datapath = [pwd filesep 'Data_' num2str(resolution) '_degrees'];
+datapath = [pwd filesep 'Data_7SS' num2str(resolution) '_degrees'];
 
 if ~exist([datapath filesep 'Graphics'], 'dir')
     mkdir([datapath filesep 'Graphics'])

@@ -22,6 +22,20 @@ title('prism1')
 saveas(gcf,[fn 'Prism_1' '.png'])
 close
 
+%% Prism 2
+
+fn = [graphpath filesep 'SlipActivity' filesep];
+
+figure
+contourf(r,a_prism2(strainStep,:))
+colorbar
+mtexColorMap black2white
+caxis([0,1])
+title('prism2')
+
+saveas(gcf,[fn 'Prism_2' '.png'])
+close
+
 %% Prism 3
 
 fn = [graphpath filesep 'SlipActivity' filesep];
@@ -50,6 +64,20 @@ title('basal1')
 saveas(gcf,[fn 'Basal_1' '.png'])
 close
 
+%% Basal 2
+
+fn = [graphpath filesep 'SlipActivity' filesep];
+
+figure
+contourf(r,a_basal2(strainStep,:))
+colorbar
+mtexColorMap black2white
+caxis([0,1])
+title('basal2')
+
+saveas(gcf,[fn 'Basal_2' '.png'])
+close
+
 %% Basal 3
 
 fn = [graphpath filesep 'SlipActivity' filesep];
@@ -64,19 +92,19 @@ title('basal3')
 saveas(gcf,[fn 'Basal_3' '.png'])
 close
 
-%% Mix
-
-fn = [graphpath filesep 'SlipActivity' filesep];
-
-figure
-contourf(r,a_mix2(strainStep,:))
-colorbar
-mtexColorMap black2white
-caxis([0,1])
-title('mix')
-
-saveas(gcf,[fn 'Mix' '.png'])
-close
+% %% Mix
+% 
+% fn = [graphpath filesep 'SlipActivity' filesep];
+% 
+% figure
+% contourf(r,a_mix2(strainStep,:))
+% colorbar
+% mtexColorMap black2white
+% caxis([0,1])
+% title('mix')
+% 
+% saveas(gcf,[fn 'Mix' '.png'])
+% close
 
 %% Pyramidal
 
@@ -143,13 +171,41 @@ for i = 1:21
 end
 close(w);
 
+%prism 2
+w = waitbar(0);
+for i = 1:21
+    h = figure;
+    set(h, 'visible', 'off');
+    filename = [fn 'prism2Activity_strain.gif'];
+    contourf(r,a_prism2(i,:))
+    colorbar
+    mtexColorMap black2white
+    caxis([0,1])
+    title(sprintf('Prism 2 Activity at Strain %.0f',i),'visible', 'on');
+    set(h, 'visible', 'off');
+    drawnow;
+    frame = getframe(h);
+    im = frame2im(frame);
+    [imind,cm] = rgb2ind(im,256);
+    
+    if i==1
+        imwrite(imind,cm,filename,'gif','LoopCount',Inf,'DelayTime',0.25);
+    else
+        imwrite(imind,cm,filename,'gif','WriteMode','append','DelayTime',0.25);
+    end
+    
+    close(h);
+    waitbar(i/21, w, sprintf('Prism 2 Progress: %.0f%%',i/21*100) );
+end
+close(w);
+
 % prism3
 w = waitbar(0);
 for i = 1:21
     h = figure;
     set(h, 'visible', 'off');
     filename = [fn 'prism3Activity_strain.gif'];
-    contourf(r,a_prism1(i,:))
+    contourf(r,a_prism3(i,:))
     colorbar
     mtexColorMap black2white
     caxis([0,1])
@@ -199,13 +255,41 @@ for i = 1:21
 end
 close(w);
 
+% basal2
+w = waitbar(0);
+for i = 1:21
+    h = figure;
+    set(h, 'visible', 'off');
+    filename = [fn 'basal2Activity_strain.gif'];
+    contourf(r,a_prism2(i,:))
+    colorbar
+    mtexColorMap black2white
+    caxis([0,1])
+    title(sprintf('Basal 2 Activity at Strain %.0f',i),'visible', 'on');
+    set(h, 'visible', 'off');
+    drawnow;
+    frame = getframe(h);
+    im = frame2im(frame);
+    [imind,cm] = rgb2ind(im,256);
+    
+    if i==1
+        imwrite(imind,cm,filename,'gif','LoopCount',Inf,'DelayTime',0.25);
+    else
+        imwrite(imind,cm,filename,'gif','WriteMode','append','DelayTime',0.25);
+    end
+    
+    close(h);
+    waitbar(i/21, w, sprintf('Basal 2 Progress: %.0f%%',i/21*100) );
+end
+close(w);
+
 % basal3
 w = waitbar(0);
 for i = 1:21
     h = figure;
     set(h, 'visible', 'off');
     filename = [fn 'basal3Activity_strain.gif'];
-    contourf(r,a_prism1(i,:))
+    contourf(r,a_prism3(i,:))
     colorbar
     mtexColorMap black2white
     caxis([0,1])
@@ -255,33 +339,33 @@ for i = 1:21
 end
 close(w);
 
-% mix2 
-w = waitbar(0);
-for i = 1:21
-    h = figure;
-    set(h, 'visible', 'off');
-    filename = [fn 'mix2Activity_strain.gif'];
-    contourf(r,a_mix2(i,:))
-    colorbar
-    mtexColorMap black2white
-    caxis([0,1])
-    title(sprintf('Basal and Prism 2 Mixed Activity at Strain %.0f',i),'visible', 'on');
-    set(h, 'visible', 'off');
-    drawnow;
-    frame = getframe(h);
-    im = frame2im(frame);
-    [imind,cm] = rgb2ind(im,256);
-    
-    if i==1
-        imwrite(imind,cm,filename,'gif','LoopCount',Inf,'DelayTime',0.25);
-    else
-        imwrite(imind,cm,filename,'gif','WriteMode','append','DelayTime',0.25);
-    end
-    
-    close(h);
-    waitbar(i/21, w, sprintf('Basal and Prism 2 Mixed Progress: %.0f%%',i/21*100) );
-end
-close(w);
+% % mix2 
+% w = waitbar(0);
+% for i = 1:21
+%     h = figure;
+%     set(h, 'visible', 'off');
+%     filename = [fn 'mix2Activity_strain.gif'];
+%     contourf(r,a_mix2(i,:))
+%     colorbar
+%     mtexColorMap black2white
+%     caxis([0,1])
+%     title(sprintf('Basal and Prism 2 Mixed Activity at Strain %.0f',i),'visible', 'on');
+%     set(h, 'visible', 'off');
+%     drawnow;
+%     frame = getframe(h);
+%     im = frame2im(frame);
+%     [imind,cm] = rgb2ind(im,256);
+%     
+%     if i==1
+%         imwrite(imind,cm,filename,'gif','LoopCount',Inf,'DelayTime',0.25);
+%     else
+%         imwrite(imind,cm,filename,'gif','WriteMode','append','DelayTime',0.25);
+%     end
+%     
+%     close(h);
+%     waitbar(i/21, w, sprintf('Basal and Prism 2 Mixed Progress: %.0f%%',i/21*100) );
+% end
+% close(w);
 
 %% Sum of all Basal and Prism 
 w = waitbar(0);
