@@ -28,8 +28,8 @@ segments = 22;
 
 resolution = 10; %degrees
 
-%r = plotS2Grid('resolution',resolution*degree,'upper');
-r = equispacedS2Grid('resolution', resolution*degree, 'upper');
+r = plotS2Grid('resolution',resolution*degree,'upper');
+%r = equispacedS2Grid('resolution', resolution*degree, 'upper');
 
 rot  = rotation('map',zvector,r);
 rot2 = rotation('map',r,zvector);

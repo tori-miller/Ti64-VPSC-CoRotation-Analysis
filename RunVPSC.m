@@ -2,14 +2,14 @@
 InitializeParameters;
 
 % Make directories if they don't exist
-if ~exist([pwd filesep 'Data_' num2str(resolution) '_degrees'], 'dir')
-    mkdir([pwd filesep 'Data_' num2str(resolution) '_degrees'])
+if ~exist([pwd filesep 'Data_7SS' num2str(resolution) '_degrees'], 'dir')
+    mkdir([pwd filesep 'Data_7SS' num2str(resolution) '_degrees'])
     sprintf('New Directory Data_%s_degrees created.', num2str(resolution));
 else
     %warning('Directory already exists.')
 end
 
-datapath = [pwd filesep 'Data_' num2str(resolution) '_degrees'];
+datapath = [pwd filesep 'Data_7SS' num2str(resolution) '_degrees'];
 
 %% Iterate through VPSC and manage output
 % Write output every 5% strain, up to a total of 100% strain (compression)
@@ -31,7 +31,7 @@ for i = 1:length(r(:))
     WriteRot(rot2(i),pwd,'rotmatrixINV.txt');
     
     % Run VPSC
-    [status, results] = dos('MillerNewVPSC.exe','-echo');
+    [status, results] = dos('vpsc_7SS.exe','-echo');
     
     % Handle VPSC Erros
     if status~=0
