@@ -10,7 +10,7 @@ strainStep = 22;
 
 %% Define a few custom color maps
 
-white2red = customcolormap([0 0.5 1], {'#ff0000', '#ffffff', '#ffffff'});
+white2red_c = customcolormap([0 0.5 1], {'#ff0000', '#ffffff', '#ffffff'});
 
 white2ltgrey = customcolormap([0 0.5 1], {'#d3d3d3','#ffffff', '#ffffff'});
 
@@ -72,7 +72,7 @@ for threshold = 5:5:40
     contourf(r,cond1, 'linestyle', 'none');
     caxis([.999,1])% weird numbers because filled contours dont like having a single level
     %colorbar
-    colormap(white2red)
+    colormap(white2red_c)
     export_fig([fn 'Condition1_Threshold_' num2str(threshold)], '-tiff', '-m4', '-rgb')
     close
     
@@ -128,4 +128,4 @@ end
 
 infile = [fn 'BinningThreshold' '.tif'];
 outfile = [fn 'BinningThreshold' '.gif'];
-im2gif( infile, outfile, '-delay', 0.5);
+im2gif(infile, outfile, '-delay', 0.5);

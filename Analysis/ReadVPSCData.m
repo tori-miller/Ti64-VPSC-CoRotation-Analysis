@@ -46,8 +46,10 @@ w = waitbar(0,sprintf('Reading Euler Angles: %.0f%%',i/length(r(:))*100));
 for i = 1:length(r(:))
     for j = 1:segments
 
-        fname_a = [pwd filesep 'Data_' num2str(resolution) '_degrees' filesep 'Rot_' num2str(i) filesep 'TEX_PH1_SEG' num2str(j) '.OUT'];
-        fname_b = [pwd filesep 'Data_' num2str(resolution) '_degrees' filesep 'Rot_' num2str(i) filesep 'TEX_PH2_SEG' num2str(j) '.OUT'];
+        fname_a = [pwd filesep 'Data_7SS' num2str(resolution) '_degrees' filesep 'Rot_' num2str(i) filesep 'TEX_PH1_SEG' num2str(j) '.OUT'];
+        fname_b = [pwd filesep 'Data_7SS' num2str(resolution) '_degrees' filesep 'Rot_' num2str(i) filesep 'TEX_PH2_SEG' num2str(j) '.OUT'];
+        disp(fname_a);
+        disp(fname_b);
 
         % This section was the old way to find the orientation. Disregard. 
                 % calc ODF for each phase

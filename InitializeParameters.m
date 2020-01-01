@@ -1,3 +1,10 @@
+%% Add Dependency Folders to Matlab Path
+% Path addition with addpath only adds to the path for the current Matlab
+% session.
+
+addpath(genpath([pwd filesep 'Analysis']));
+addpath(genpath([pwd filesep 'ExternalTools']));
+
 %% Set Crystal Symmetries for alpha and beta phases
 
 CSa = crystalSymmetry('622', [2.95 2.95 4.68], 'X||a', 'Y||b*', 'Z||c', 'color', 'light blue');
@@ -26,7 +33,7 @@ segments = 22;
 % 1387 rotations = 5
 % 2093 rotations = 4
 
-resolution = 90; %degrees
+resolution = 10; %degrees
 
 r = plotS2Grid('resolution',resolution*degree,'upper');
 %r = equispacedS2Grid('resolution', resolution*degree, 'upper');
@@ -46,10 +53,7 @@ a_basal3 = zeros(41,dataSet);
 a_pyr = zeros(41,dataSet);
 %a_mix2 = zeros(41,dataSet);
 
+%% Initialize Color Maps
 
-%% Add Dependency Folders to Matlab Path
-% Path addition with addpath only adds to the path for the current Matlab
-% session.
-
-addpath(genpath([pwd filesep 'Analysis']));
-addpath(genpath([pwd filesep 'ExternalTools']));
+white2red  = customcolormap([0 1], {'#ff0000', '#ffffff'});
+white2blue = customcolormap([0 1], {'#0000ff', '#ffffff'});
