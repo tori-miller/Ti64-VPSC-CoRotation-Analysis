@@ -27,7 +27,12 @@ close(w);
 oMa = PatalaColorKey(aMori);
 oMb = PatalaColorKey(bMori);
 
+
 % Color Key for Axis Only Figure
+
+    %fix the symmetry
+    aMori.CS = aMori.CS.Laue;
+
 oMa_ao = ipfHSVKey(aMori);
 oMb_ao = ipfHSVKey(bMori);
 
