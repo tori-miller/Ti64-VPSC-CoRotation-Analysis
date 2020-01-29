@@ -23,22 +23,20 @@ close(w);
 
 %%
 
+% Color Key for Quaternion Figure
 oMa = PatalaColorKey(aMori);
 oMb = PatalaColorKey(bMori);
 
-% for j = 1:segments
-%     figure
-%     rgb = squeeze(oMa.orientation2color(aMori(:,j)));
-%     plot(r, rgb(:,1,:));
-%     disp(j)
-% end
-% 
-% for j = 1:segments
-%     figure
-%     rgb = squeeze(oMb.orientation2color(bMori(:,j)));
-%     plot(r, rgb);
-%     disp(j)
-% end
 
-% plot(oMa)
-% plot(oMb)
+% Color Key for Axis Only Figure
+
+    %fix the symmetry
+    aMori.CS = aMori.CS.Laue;
+
+oMa_ao = ipfHSVKey(aMori);
+oMb_ao = ipfHSVKey(bMori);
+
+% figure
+% plot(oMa_ao)
+% figure
+% plot(oMb_ao)
