@@ -2,7 +2,8 @@
 
 © Victoria M. Miller and Benjamin A. Begley, 2019.
 
-This repository contains the code necessary to run and analyze Viscoplastic Self-Consistent (VPSC) simulations for alpha-beta Ti alloys in compression. This code was used in the paper "Prediction of relative globularization rates in α + β titanium alloys as a function of initial crystal orientation," by B.A. Begley, S.K. Markham, M.R. Mizak, A.L. Pilchak, and V.M. Miller, submitted October 2019. 
+This repository contains the code necessary to run and analyze Viscoplastic Self-Consistent (VPSC) simulations for alpha-beta Ti alloys in compression. This code was used in the paper "Prediction of relative globularization rates in α + β titanium alloys as a function of initial crystal orientation," by B.A. Begley, S.K. Markham, M.R. Mizak, A.L. Pilchak, and V.M. Miller, published in _Journal of Materials Research_ Vol. 35, Iss. 8, April 2020. Available at: https://doi.org/10.1557/jmr.2020.54
+
 
 Code is broken into three parts: 
 1. Variable declarations (for conventionally modified parameters), found in *InitializeParameters.m*
